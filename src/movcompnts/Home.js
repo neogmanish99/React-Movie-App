@@ -1,16 +1,12 @@
-import React, { useContext } from "react";
-import { FirstName, LastName } from "./context";
-import { useGlobalHook } from "./context";
+import React from "react";
+import Search from "./Search";
+import Movies from "./Movies";
 
 const Home = () => {
-    const Fname = useContext(FirstName);
-    const Lname = useContext(LastName);
-    const City = useGlobalHook();
     return (
         <>
-            <h1>My home</h1>
-            <p>{`${Lname} ${Fname}`}</p>
-            <p>{City}</p>
+            <Search />
+            <Movies />
         </>
     );
 };
