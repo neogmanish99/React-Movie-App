@@ -4,7 +4,7 @@
 
 import React, { useContext, useEffect, useState } from "react";
 
-const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=avengers`;
+const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
 // 1.
 const AppContext = React.createContext();
@@ -15,6 +15,7 @@ const AppProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [movie, setMovie] = useState([]);
     const [isError, setIsError] = useState({ show: false, msg: "" });
+    const [search, setSearch] = useState("avengers");
 
     const getMovies = async (url) => {
         try {
@@ -37,11 +38,21 @@ const AppProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        getMovies(API_URL);
-    }, []);
+        //Using the debouncing functionality
+        let timer = setTimeout(() => {
+            getMovies(`${API_URL}&s=${search}`);
+        }, 1000);
+
+        //Cleanup function
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [search]);
 
     return (
-        <AppContext.Provider value={{ isLoading, isError, movie }}>
+        <AppContext.Provider
+            value={{ isLoading, isError, movie, search, setSearch }}
+        >
             {children}
         </AppContext.Provider>
     );

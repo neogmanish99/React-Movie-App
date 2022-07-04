@@ -23,6 +23,8 @@ html {
 
 body {
     background-color: var(--bg-clr);
+    /* background: url("./img/WallpaperDog-10915322.jpg") no-repeat center
+        center/cover; */
 }
 
 h2 {
