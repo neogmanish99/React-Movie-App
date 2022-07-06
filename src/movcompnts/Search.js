@@ -3,10 +3,10 @@ import { useGlobalContext } from "./context";
 
 const Search = () => {
     const { search, setSearch, isError } = useGlobalContext();
-    const emptySearchBar = (e) => {
-        setSearch("");
-        e.preventDefault();
-    };
+    // const emptySearchBar = (e) => {
+    //     setSearch("");
+    //     e.preventDefault();
+    // };
     return (
         <>
             <section className="search-section">
