@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Movies = () => {
     const { movie, isLoading } = useGlobalContext();
     if (isLoading) {
-        return <h1>Is Loading?</h1>;
+        return <h1 style={{ textAlign: "center" }}>Search your fav Movie!!</h1>;
     }
     return (
         <>

@@ -3,10 +3,7 @@ import { useGlobalContext } from "./context";
 
 const Search = () => {
     const { search, setSearch, isError } = useGlobalContext();
-    // const emptySearchBar = (e) => {
-    //     setSearch("");
-    //     e.preventDefault();
-    // };
+
     return (
         <>
             <section className="search-section">
@@ -15,7 +12,6 @@ const Search = () => {
                     <div>
                         <input
                             type="text"
-                            // onClick={emptySearchBar}
                             onChange={(e) => setSearch(e.target.value)}
                             value={search}
                         />
